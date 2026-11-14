@@ -72,11 +72,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ok{list-style:none;margin-top:18px;display:grid;gap:6px;font-size:14.5px;color:#e6e6e6}.ok li::before{content:"\2713";color:var(--g);font-weight:700;margin-right:9px}
 @media(min-width:1100px){.facts{grid-template-columns:repeat(4,1fr)}}
 /* faixa marcas */
-.band{overflow:hidden;border-block:1px solid var(--line);padding:16px 0;white-space:nowrap}
-.band div{display:inline-block;animation:mq 40s linear infinite}
-.band span{font-family:"Hanson";font-size:30px;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.55);margin-right:38px}
-.band span:nth-child(3n){color:var(--g);-webkit-text-stroke:0}
-@keyframes mq{to{transform:translateX(-50%)}}
+.band{overflow:hidden;border-block:1px solid var(--line);padding:15px 0;background:#000}
+.band div{display:flex;width:max-content;animation:mq 32s linear infinite;will-change:transform}
+.band span{flex:none;font-family:"Hanson",Impact,sans-serif;font-weight:700;font-size:24px;line-height:1.1;text-transform:uppercase;white-space:nowrap;color:#fff;margin-right:34px}
+.band span:nth-child(even){color:var(--g)}
+@media(min-width:900px){.band span{font-size:30px;margin-right:44px}}
+@keyframes mq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 @media(prefers-reduced-motion:reduce){.band div{animation:none}html{scroll-behavior:auto}}
 
 /* factos */
