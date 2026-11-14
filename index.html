@@ -73,12 +73,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media(min-width:1100px){.facts{grid-template-columns:repeat(4,1fr)}}
 /* faixa marcas */
 .band{overflow:hidden;border-block:1px solid var(--line);padding:15px 0;background:#000}
-.band div{display:flex;width:max-content;animation:mq 32s linear infinite;will-change:transform}
-.band span{flex:none;font-family:"Hanson",Impact,sans-serif;font-weight:700;font-size:24px;line-height:1.1;text-transform:uppercase;white-space:nowrap;color:#fff;margin-right:34px}
-.band span:nth-child(even){color:var(--g)}
+.band div{display:flex;width:max-content}
+.band span{flex:none;font-family:"Hanson",Impact,sans-serif;font-weight:700;font-size:24px;line-height:1.15;text-transform:uppercase;white-space:nowrap;color:#fff;margin-right:34px}
+@supports (-webkit-text-stroke:1px #fff){.band span{color:transparent;-webkit-text-stroke:1.2px #fff}}
+.band span:nth-child(3n){color:var(--g);-webkit-text-stroke:0}
 @media(min-width:900px){.band span{font-size:30px;margin-right:44px}}
-@keyframes mq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
-@media(prefers-reduced-motion:reduce){.band div{animation:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* factos */
 .facts{display:grid;gap:0;grid-template-columns:1fr;margin:34px auto 0}
@@ -367,7 +367,11 @@ function tk(k,i,bonus){
 $("k3").innerHTML=K3.map(function(k,i){return tk(k,i,false)}).join("");
 $("kb").innerHTML=KB.map(function(k,i){return tk(k,i,true)}).join("");
 var B=["Tom Ford","Yves Saint Laurent","Armani","Rabanne","Dolce & Gabbana","Azzaro","Calvin Klein","Lattafa"],bs="";
-for(var j=0;j<2;j++)B.forEach(function(b){bs+="<span>"+b+"</span>"});$("band").innerHTML=bs;
+for(var j=0;j<3;j++)B.forEach(function(b){bs+="<span>"+b+"</span>"});$("band").innerHTML=bs;
+(function(){var box=$("band").parentNode,tr=$("band"),x=0,last=0;
+ if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ function step(ts){var dt=last?Math.min(ts-last,60):16;last=ts;var one=tr.scrollWidth/3;x+=dt*0.045;if(one>0&&x>=one)x-=one;box.scrollLeft=x;requestAnimationFrame(step)}
+ requestAnimationFrame(step)})();
 
 var bag={};
 function sub(){var s=0;for(var k in bag)s+=CAT[k].price*bag[k];return s}
