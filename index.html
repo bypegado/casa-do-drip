@@ -383,7 +383,7 @@ body.hasbar .fwa{bottom:92px}
   <div>
     <div class="sh"><h2 class="hn">Como pedir</h2></div>
     <ol class="steps">
-      <li><div><b>Monte o pedido</b><span>Junte ao pedido os decants e os kits pretendidos.</span></div></li>
+      <li><div><b>Escolha os perfumes</b><span>Toque em Comprar nos decants e kits que quer. Pode escolher vários.</span></div></li>
       <li><div><b>Envie pelo WhatsApp</b><span>A mensagem segue já escrita, com os artigos e o valor total.</span></div></li>
       <li><div><b>Receba e pague na entrega</b><span>Combinamos consigo o endereço. O pagamento é feito apenas no acto da entrega.</span></div></li>
     </ol>
@@ -419,7 +419,7 @@ body.hasbar .fwa{bottom:92px}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="bar" id="bar"><div class="prog"><i id="pg"></i></div><div class="in">
   <div class="t"><b id="bt"></b><span id="bs"></span></div>
-  <button class="btn" id="open">Ver pedido</button>
+  <button class="btn" id="open">Finalizar pedido</button>
 </div></div>
 <div class="ov" id="ov"></div>
 <div class="sheetb" id="sh" role="dialog" aria-label="O meu pedido" aria-hidden="true">
@@ -463,7 +463,7 @@ function $(i){return document.getElementById(i)}
 function wa(m){return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m)}
 var CAT={};
 function chip(id,ml,label,price){CAT[id]={label:label,price:price};
- return '<button class="chip" data-add="'+id+'" aria-label="Juntar ao pedido: '+label+', '+kz(price)+'"><span><i>'+ml+' ml</i><br><b>'+kz(price)+'</b></span><u aria-hidden="true">+</u></button>'}
+ return '<button class="chip" data-add="'+id+'" aria-label="Comprar: '+label+', '+kz(price)+'"><span><i>'+ml+' ml</i><br><b>'+kz(price)+'</b></span><u aria-hidden="true">+</u></button>'}
 var CATN={premium:"Premium",rotacao:"Rotação",arabe:"Árabe"},g="";
 P.forEach(function(p){
  CAT[p[0]+"5"]={label:"Decant 5 ml "+p[1],price:p[3]};CAT[p[0]+"10"]={label:"Decant 10 ml "+p[1],price:p[4]};
@@ -478,7 +478,7 @@ function th(id,of){return '<div class="'+(of?"of":"")+(IMG[id]?"":" no")+'">'+(I
 function tk(k,i,bonus){
  var id=(bonus?"kb":"k3")+i,price=bonus?k[3]:k[2],was=bonus?k[4]:k[3],nm=k[1].map(function(x){return N[x]});
  CAT[id]={label:k[0]+(bonus?" com bónus":"")+" ("+nm.join(" + ")+(bonus?" + bónus "+N[k[2]]:"")+")",price:price};
- return '<article class="tk'+(bonus?" gr":"")+'"><span class="sy kl">'+(bonus?"2 x 10 ml + 5 ml grátis":"3 x 5 ml")+'</span><h3 class="hn">'+k[0]+'</h3><div class="th">'+k[1].map(function(x){return th(x)}).join("")+(bonus?th(k[2],1):"")+'</div><ul>'+nm.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul>'+(bonus?'<div class="bn">Oferta: 5 ml de '+N[k[2]]+'</div>':'')+'<div class="cut"></div><div class="pr"><b>'+kz(price)+'</b><s>'+kz(was)+'</s></div><span class="sv">Poupa '+kz(was-price)+(bonus?" e ainda recebe a oferta":"")+'</span><button class="btn k" data-add="'+id+'">Juntar ao pedido</button></article>';
+ return '<article class="tk'+(bonus?" gr":"")+'"><span class="sy kl">'+(bonus?"2 x 10 ml + 5 ml grátis":"3 x 5 ml")+'</span><h3 class="hn">'+k[0]+'</h3><div class="th">'+k[1].map(function(x){return th(x)}).join("")+(bonus?th(k[2],1):"")+'</div><ul>'+nm.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul>'+(bonus?'<div class="bn">Oferta: 5 ml de '+N[k[2]]+'</div>':'')+'<div class="cut"></div><div class="pr"><b>'+kz(price)+'</b><s>'+kz(was)+'</s></div><span class="sv">Poupa '+kz(was-price)+(bonus?" e ainda recebe a oferta":"")+'</span><button class="btn k" data-add="'+id+'" data-l="Comprar este kit">Comprar este kit</button></article>';
 }
 $("k3").innerHTML=K3.map(function(k,i){return tk(k,i,false)}).join("");
 $("kb").innerHTML=KB.map(function(k,i){return tk(k,i,true)}).join("");
@@ -501,13 +501,13 @@ function render(){
  $("pg").style.width=Math.min(100,s/FREE*100)+"%";
  var h="",m="Olá! Gostaria de fazer o seguinte pedido:\n";
  for(var k in bag){var c=CAT[k];
-  h+='<div class="it"><b>'+c.label+'</b><div class="q"><button data-q="-1" data-k="'+k+'" aria-label="Tirar um">&minus;</button><span>'+bag[k]+'</span><button data-q="1" data-k="'+k+'" aria-label="Juntar mais um">+</button></div><small>'+kz(c.price*bag[k])+'</small></div>';
+  h+='<div class="it"><b>'+c.label+'</b><div class="q"><button data-q="-1" data-k="'+k+'" aria-label="Tirar um">&minus;</button><span>'+bag[k]+'</span><button data-q="1" data-k="'+k+'" aria-label="Mais um">+</button></div><small>'+kz(c.price*bag[k])+'</small></div>';
   m+="- "+bag[k]+" x "+c.label+": "+kz(c.price*bag[k])+"\n";}
  $("its").innerHTML=h||"<p style='padding:14px 0'>O pedido está vazio. Escolha um decant ou um kit.</p>";
  var ship=free?0:SHIP;
  $("tot").innerHTML=n?'<div><span>Subtotal</span><span>'+kz(s)+'</span></div><div><span>Entrega em Luanda</span><span>'+(free?"Grátis":"desde "+kz(SHIP))+'</span></div><div class="T"><span>'+(free?"Total":"Total sem entrega")+'</span><span>'+kz(s)+'</span></div>'+(free?'':'<small style="color:#444">O custo de entrega varia consoante a zona e é confirmado pelo WhatsApp.</small>'):"";
  $("hint").style.display=n&&!free?"block":"none";
- $("hint").textContent="Junte mais "+kz(FREE-s)+" e a entrega fica grátis.";
+ $("hint").textContent="Faltam "+kz(FREE-s)+" para a entrega ficar grátis.";
  m+=free?"Total: "+kz(s)+"\nEntrega em Luanda: grátis":"Subtotal: "+kz(s)+"\nEntrega: por confirmar, consoante a minha zona";
  m+="\nPagamento: no acto da entrega";
  $("send").href=wa(m);$("send").style.display=n?"flex":"none";
@@ -517,10 +517,10 @@ function sheet(on){$("sh").classList.toggle("on",on);$("ov").classList.toggle("o
 document.addEventListener("click",function(e){
  var a=e.target.closest("[data-add]"),q=e.target.closest("[data-q]");
  if(a){var id=a.getAttribute("data-add");bag[id]=(bag[id]||0)+1;a.classList.add("ok");
-  var lb=a.getAttribute("data-l")||"Juntar ao pedido";
-  if(a.classList.contains("btn")||a.classList.contains("buy")){a.textContent="No pedido \u2713";setTimeout(function(){a.textContent=lb;a.classList.remove("ok")},1400)}
+  var lb=a.getAttribute("data-l")||"Comprar";
+  if(a.classList.contains("btn")||a.classList.contains("buy")){a.textContent="Adicionado \u2713";setTimeout(function(){a.textContent=lb;a.classList.remove("ok")},1400)}
   else setTimeout(function(){a.classList.remove("ok")},700);
-  toast("Juntado ao pedido: "+CAT[id].label);
+  toast("\u2713 Adicionado ao seu pedido");
   render()}
  var s=e.target.closest(".sz button");
  if(s){var card=s.closest(".p"),z=s.getAttribute("data-s");card.setAttribute("data-sz",z);
