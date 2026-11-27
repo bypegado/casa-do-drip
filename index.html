@@ -229,21 +229,21 @@ footer a b{text-decoration:underline;text-underline-offset:4px;text-decoration-c
 .trust span{display:block;font-size:12px;color:var(--mut);line-height:1.35;margin-top:2px}
 @media(min-width:900px){.trust{grid-template-columns:repeat(4,1fr);gap:14px}.trust>div{padding:18px}.trust b{font-size:15px}.trust span{font-size:13px}}
 .promo{padding:36px 0 0}
-.pr-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -18px;padding:0 18px}
-.pr-track::-webkit-scrollbar{display:none}
-.pr{flex:0 0 100%;scroll-snap-align:center;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:8px;min-height:200px;background:var(--paper);color:#000;padding:20px 16px 20px 20px;position:relative;overflow:hidden}
-.pr.gr{background:var(--g)}
-.pr .sy{font-size:11.5px;display:block;opacity:.75}
-.pr b{display:block;font-size:clamp(25px,7.2vw,38px);line-height:.98;margin:8px 0 8px}
-.pr p{font-size:14px;font-weight:500;line-height:1.35}
-.pr u{display:inline-block;margin-top:12px;text-decoration:none;font-weight:700;font-size:13px;border-bottom:2px solid #000;padding-bottom:2px}
-.pr-i{display:flex;justify-content:center;align-items:center;height:100%;min-height:170px}
-.pr-i img{width:72%;max-height:190px;object-fit:contain;mix-blend-mode:multiply;margin:0 -10%}
-.pr-i img:nth-child(2){transform:translateY(-6px)}
-.pr-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
-.pr-dots i{width:8px;height:8px;border-radius:50%;background:#444;transition:background .2s,width .2s}
-.pr-dots i.on{background:var(--g);width:22px;border-radius:4px}
-@media(min-width:900px){.pr-track{margin:0;padding:0;overflow:visible;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.pr{min-height:240px;grid-template-columns:1.15fr .85fr;padding:22px 14px 22px 22px}.pr b{font-size:24px}.pr p{font-size:13.5px}.pr-i img{width:62%;margin:0 -12%}.pr-dots{display:none}}
+.pc-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -18px;padding:0 18px}
+.pc-track::-webkit-scrollbar{display:none}
+.pc{flex:0 0 100%;scroll-snap-align:center;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:8px;min-height:200px;background:var(--paper);color:#000;padding:20px 16px 20px 20px;position:relative;overflow:hidden}
+.pc.gr{background:var(--g)}
+.pc .sy{font-size:11.5px;display:block;opacity:.75}
+.pc b{display:block;font-size:clamp(25px,7.2vw,38px);line-height:.98;margin:8px 0 8px}
+.pc p{font-size:14px;font-weight:500;line-height:1.35}
+.pc u{display:inline-block;margin-top:12px;text-decoration:none;font-weight:700;font-size:13px;border-bottom:2px solid #000;padding-bottom:2px}
+.pc-i{display:flex;justify-content:center;align-items:center;height:100%;min-height:170px}
+.pc-i img{width:72%;max-height:190px;object-fit:contain;mix-blend-mode:multiply;margin:0 -10%}
+.pc-i img:nth-child(2){transform:translateY(-6px)}
+.pc-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
+.pc-dots i{width:8px;height:8px;border-radius:50%;background:#444;transition:background .2s,width .2s}
+.pc-dots i.on{background:var(--g);width:22px;border-radius:4px}
+@media(min-width:900px){.pc-track{margin:0;padding:0;overflow:visible;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.pc{min-height:240px;grid-template-columns:1.15fr .85fr;padding:22px 14px 22px 22px}.pc b{font-size:24px}.pc p{font-size:13.5px}.pc-i img{width:62%;margin:0 -12%}.pc-dots{display:none}}
 .tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:-6px 0 18px;padding-bottom:2px}
 .tabs::-webkit-scrollbar{display:none}
 .tabs button{flex:none;min-height:42px;padding:0 18px;border:1.5px solid #3a3a3a;font-weight:600;font-size:14px;color:#ddd;transition:background .15s,color .15s,border-color .15s}
@@ -304,12 +304,12 @@ body.hasbar .fwa{bottom:92px}
 </div>
 
 <section class="promo" aria-label="Ofertas"><div class="w">
-  <div class="pr-track" id="prt">
-    <a class="pr gr" href="#bonus"><div class="pr-t"><span class="sy">Kits com bónus</span><b class="hn">5 ml de oferta</b><p>Leve 2 decants de 10 ml e receba mais um de 5 ml.</p><u>Ver kits com bónus</u></div><div class="pr-i"><img data-img="tf" alt=""><img data-img="ysl" alt=""></div></a>
-    <a class="pr" href="#decants" data-f="arabe"><div class="pr-t"><span class="sy">Linha Khamrah</span><b class="hn">Desde 7.500 Kz</b><p>Quatro perfumes da Lattafa, em 5 ml ou 10 ml.</p><u>Ver árabes</u></div><div class="pr-i"><img data-img="waha" alt=""><img data-img="kh" alt=""></div></a>
-    <a class="pr gr" href="#kits"><div class="pr-t"><span class="sy">Kits de descoberta</span><b class="hn">Poupe até 6.000 Kz</b><p>Três perfumes de 5 ml num só kit.</p><u>Ver kits</u></div><div class="pr-i"><img data-img="azz" alt=""><img data-img="adg" alt=""></div></a>
+  <div class="pc-track" id="prt">
+    <a class="pc gr" href="#bonus"><div class="pc-t"><span class="sy">Kits com bónus</span><b class="hn">5 ml de oferta</b><p>Leve 2 decants de 10 ml e receba mais um de 5 ml.</p><u>Ver kits com bónus</u></div><div class="pc-i"><img data-img="tf" alt=""><img data-img="ysl" alt=""></div></a>
+    <a class="pc" href="#decants" data-f="arabe"><div class="pc-t"><span class="sy">Linha Khamrah</span><b class="hn">Desde 7.500 Kz</b><p>Quatro perfumes da Lattafa, em 5 ml ou 10 ml.</p><u>Ver árabes</u></div><div class="pc-i"><img data-img="waha" alt=""><img data-img="kh" alt=""></div></a>
+    <a class="pc gr" href="#kits"><div class="pc-t"><span class="sy">Kits de descoberta</span><b class="hn">Poupe até 6.000 Kz</b><p>Três perfumes de 5 ml num só kit.</p><u>Ver kits</u></div><div class="pc-i"><img data-img="azz" alt=""><img data-img="adg" alt=""></div></a>
   </div>
-  <div class="pr-dots" id="prd" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  <div class="pc-dots" id="prd" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
 </div></section>
 
 
