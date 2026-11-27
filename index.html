@@ -321,6 +321,24 @@ body.hasbar .fwa{bottom:92px}
  .hs-a{display:grid;place-items:center;position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font-size:30px;line-height:1}
  .hs-a.l{left:16px}.hs-a.r{right:16px}
 }
+
+/* carrossel: caber no ecrã do telemóvel */
+@media(max-width:899px){
+ .sl{height:calc(100vh - 150px);height:calc(100svh - 150px);max-height:600px;min-height:460px}
+ .sl-t{padding:16px 18px 0}
+ .sl-t .sy{font-size:11px;margin-bottom:5px}
+ .sl h1,.sl h2{font-size:clamp(27px,8.2vw,42px)}
+ .sl p{font-size:13.5px;line-height:1.4;margin:7px 0 11px}
+ .sl .btn{min-height:42px;font-size:13px;padding:0 18px}
+ .sl-v{min-height:0;padding:10px 0 30px}
+ .s1 .sl-v{padding:8px 0 0}
+ .s1 .hp{object-fit:contain;object-position:center bottom}
+ .s1 .stk{width:88px;height:88px;right:10px;bottom:34px}.s1 .stk b{font-size:15px}.s1 .stk small{font-size:9.5px}
+ .s2 .sl-v{margin:10px 18px 34px;padding:0}
+ .sl-v.im img{max-height:100%;height:auto}
+ .sl-v.q{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;padding:8px 22px 30px}
+ .sl-v.q img{width:100%;height:100%;max-height:none;min-height:0;object-fit:contain}
+}
 </style>
 </head>
 <body>
@@ -559,7 +577,7 @@ var tt;function toast(m){var el=$("toast");el.textContent=m;el.classList.add("on
  tr.addEventListener("scroll",function(){var c=cur();for(var k=0;k<n;k++)d[k].classList.toggle("on",k===c)},{passive:true});
  tr.addEventListener("touchstart",function(){stop=true},{passive:true});
  $("hsp").onclick=function(){stop=true;go(cur()-1)};$("hsn").onclick=function(){stop=true;go(cur()+1)};
- if(rm)return;setInterval(function(){if(!stop&&!document.hidden)go(cur()+1)},5000)})();
+ if(rm)return;setInterval(function(){if(!stop&&!document.hidden)go(cur()+1)},3000)})();
 render();
 </script>
 </body>
